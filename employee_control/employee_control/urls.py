@@ -19,13 +19,15 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
-from employees.views import EmployeeViewSet
+from employees.views import EmployeeViewSet, TaskViewSet, StationViewSet
 
 router = DefaultRouter()
 #DefaultRouter анализирует EmployeeViewSet и автоматически генерирует набор URL-маршрутов:
 #/employees/ → для list и create (GET, POST)
 #/employees/{id}/ → для retrieve, update, partial_update, destroy (GET, PUT, PATCH, DELETE)
 router.register(r'employees', EmployeeViewSet, basename='employee')
+router.register(r'tasks', TaskViewSet, basename='task')
+router.register(r'stations', StationViewSet, basename='station')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -4,4 +4,4 @@ from .models import Employee
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = "pk", "name", "phone"
+    list_display = "pk", "user", "position", "phone"
