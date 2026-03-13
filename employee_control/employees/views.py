@@ -14,7 +14,7 @@ from .serializers import EmployeeSerializer, TaskSerializer, StationSerializer
 class EmployeeViewSet(viewsets.ModelViewSet):
     # чтобы только аутентифицированные пользователи могли обращаться к API сотрудников:
     #при наличии этой строки любой запрос к /api/employees/ без токена вернёт ошибку 401 Unauthorized.
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     #queryset – задаёт, с какими объектами работает вьюсет. Здесь – все сотрудники.
     queryset = Employee.objects.all()
     #указывает, какой сериализатор использовать:
